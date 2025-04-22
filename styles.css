@@ -1,3 +1,25 @@
+:root {
+    --background: #fff;
+    --text-color-main: #333;
+    --text-color-light: #555;
+    --primary-gradient: linear-gradient(-45deg, #4773F5, #8847F5, #c03af5, #b1d0e5);
+    --project-card-bg: #fff;
+    --project-card-text: #000;
+    --divider: #000;
+    --icon-color: #000;
+}
+
+body.dark-mode {
+    --background: #181c23;
+    --text-color-main: #fff;
+    --text-color-light: #ccc;
+    --primary-gradient: linear-gradient(-45deg, #182245, #432392, #8741bd, #2b3a5a);
+    --project-card-bg: #222332;
+    --project-card-text: #fff;
+    --divider: #444a60;
+    --icon-color: #8ea4e2;
+}
+
 /* Fundo gradiente animado */
 .container-gradient {
     display: flex;
@@ -5,16 +27,13 @@
     align-items: center;
     position: relative;
     height: 100vh;
-    /* Ocupa toda a altura da tela */
-    background: linear-gradient(-45deg, #4773F5, #8847F5, #c03af5, #b1d0e5);
+    background: var(--primary-gradient);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    color: white;
-    /* Cor do texto */
+    color: var(--text-color-main);
     text-align: center;
 }
 
-/* Animação do gradiente */
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -29,18 +48,68 @@
     }
 }
 
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 50px 0 50px;
+    box-sizing: border-box;
+}
+
+.toggle-dark {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .toggle-dark {
+    background: rgba(42, 30, 70, 0.5);
+    color: #e1e7ff;
+}
+
+.toggle-dark:active {
+    transform: scale(0.97);
+}
+
 /* Estilo do título */
 h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 6rem;
     letter-spacing: 5px;
-    /* Espaçamento entre as letras */
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    /* Sombra para dar destaque ao texto */
+    color: var(--text-color-main);
+}
+
+.text-section h1,
+.container-projects .title,
+.contact-title {
+    color: var(--text-color-main);
+}
+
+body.dark-mode h1,
+body.dark-mode .container-projects .title,
+body.dark-mode .contact-title,
+body.dark-mode .text-section h1 {
+    color: var(--text-color-main);
 }
 
 /* Seção "About Me" */
+body,
+.container-about,
+.container-projects,
+.container-contact {
+    background: var(--background);
+    color: var(--text-color-main);
+    transition: background 0.4s, color 0.3s;
+}
+
 .container-about {
     padding: 50px 20px;
     text-align: center;
@@ -49,19 +118,15 @@ h1 {
 .about-wrapper {
     display: flex;
     align-items: center;
-    /* Alinha verticalmente o conteúdo */
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
-    /* Garante que o layout seja responsivo */
 }
 
 .image-section {
     flex: 1;
-    /* A imagem ocupará 1 parte */
     max-width: 33.33%;
-    /* 1/3 da largura */
     margin-right: 30px;
 }
 
@@ -74,7 +139,6 @@ h1 {
 
 .text-section {
     flex: 2;
-    /* O texto ocupará 2 partes */
     font-family: 'Quicksand', sans-serif;
     text-align: left;
 }
@@ -82,17 +146,20 @@ h1 {
 .text-section h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #333;
     margin-bottom: 20px;
 }
 
 .text-section p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--text-color-light);
     line-height: 1.6;
     margin-bottom: 20px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+body.dark-mode .text-section p {
+    color: var(--text-color-light);
 }
 
 /* Responsividade */
@@ -120,11 +187,12 @@ h1 {
     }
 }
 
-/* Estilo básico para "Projects" */
+/* Seção Projetos */
 .container-projects {
     margin: 50px auto;
     padding: 40px;
     max-width: 1200px;
+    background: var(--background);
 }
 
 .container-projects .title {
@@ -135,24 +203,29 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* Estilo da seção de projetos */
 .projects {
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(135deg, #adcbe3, #efbbcf);
+    background: linear-gradient(135deg, rgba(173, 203, 227, 0.85), rgba(239, 187, 207, 0.85));
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+body.dark-mode .projects {
+    background: linear-gradient(135deg, rgba(48, 60, 100, 0.85), rgba(72, 41, 82, 0.85));
 }
 
 .project-card {
     flex: 1;
     margin: 0 10px;
     padding: 20px;
-    background: #fff;
+    background: var(--project-card-bg);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+    color: var(--project-card-text);
 }
 
 .project-card:hover {
@@ -164,12 +237,12 @@ h1 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #000;
+    color: var(--project-card-text);
 }
 
 .project-card p {
     font-size: 1rem;
-    color: #555;
+    color: var(--text-color-light);
     text-align: justify;
 }
 
@@ -179,11 +252,15 @@ h1 {
     font-weight: bold;
 }
 
+body.dark-mode .project-card a {
+    color: #60aaff;
+}
+
 .project-card a:hover {
     text-decoration: underline;
 }
 
-/* Responsividade */
+/* Responsividade projetos */
 @media (max-width: 768px) {
     .projects {
         flex-direction: column;
@@ -195,13 +272,14 @@ h1 {
     }
 }
 
-/* Estilo da seção "Contact Me" */
+/* Seção "Contact Me" */
 .container-contact {
     text-align: center;
     padding: 50px 20px;
     margin-top: 50px;
     max-width: 800px;
     margin: 0 auto;
+    background: var(--background);
 }
 
 .contact-title {
@@ -214,7 +292,7 @@ h1 {
 .divider {
     border: none;
     height: 2px;
-    background-color: #000;
+    background-color: var(--divider);
     margin: 20px 0;
 }
 
@@ -236,9 +314,10 @@ h1 {
     width: 40px;
     height: 40px;
     margin-right: 15px;
+    font-size: 1.5rem;
+    color: var(--icon-color);
 }
 
-/* Ajustes para telas menores */
 @media (max-width: 768px) {
     .contact-content {
         gap: 15px;
