@@ -1,0 +1,250 @@
+/* Fundo gradiente animado */
+.container-gradient {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    /* Ocupa toda a altura da tela */
+    background: linear-gradient(-45deg, #4773F5, #8847F5, #c03af5, #b1d0e5);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    /* Cor do texto */
+    text-align: center;
+}
+
+/* Animação do gradiente */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilo do título */
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    letter-spacing: 5px;
+    /* Espaçamento entre as letras */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Sombra para dar destaque ao texto */
+}
+
+/* Seção "About Me" */
+.container-about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    /* Alinha verticalmente o conteúdo */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* Garante que o layout seja responsivo */
+}
+
+.image-section {
+    flex: 1;
+    /* A imagem ocupará 1 parte */
+    max-width: 33.33%;
+    /* 1/3 da largura */
+    margin-right: 30px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.text-section {
+    flex: 2;
+    /* O texto ocupará 2 partes */
+    font-family: 'Quicksand', sans-serif;
+    text-align: left;
+}
+
+.text-section h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .text-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .text-section p {
+        font-size: 1rem;
+    }
+
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilo básico para "Projects" */
+.container-projects {
+    margin: 50px auto;
+    padding: 40px;
+    max-width: 1200px;
+}
+
+.container-projects .title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Estilo da seção de projetos */
+.projects {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #adcbe3, #efbbcf);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-card {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+}
+
+.project-card a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .projects {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+    .project-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilo da seção "Contact Me" */
+.container-contact {
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background-color: #000;
+    margin: 20px 0;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.contact-item .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .contact-content {
+        gap: 15px;
+    }
+
+    .contact-item span {
+        font-size: 1rem;
+    }
+}
